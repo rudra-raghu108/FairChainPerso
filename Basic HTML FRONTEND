@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FairChain — Trust-Based Supply Chain & B2B Marketplace</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef7ff',
+              100: '#d9edff',
+              200: '#bce0ff',
+              300: '#8ecdff',
+              400: '#59b0ff',
+              500: '#338dff',
+              600: '#1b6df5',
+              700: '#1457e1',
+              800: '#1746b6',
+              900: '#193e8f',
+              950: '#142757',
+            },
+            accent: {
+              50: '#edfff7',
+              100: '#d5ffed',
+              200: '#aeffdb',
+              300: '#70ffc2',
+              400: '#2bfda1',
+              500: '#00e682',
+              600: '#00bf68',
+              700: '#009655',
+              800: '#067545',
+              900: '#07603b',
+              950: '#00371f',
+            },
+            trust: {
+              gold: '#f59e0b',
+              silver: '#94a3b8',
+              bronze: '#d97706',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-slate-950 text-white font-sans antialiased">
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2.5 group">
+          <div class="w-9 h-9 bg-gradient-to-br from-brand-500 to-accent-500 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/25 group-hover:shadow-brand-500/40 transition-shadow">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+            </svg>
+          </div>
+          <span class="text-xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">FairChain</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-center gap-1">
+          <a href="#marketplace" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Marketplace</a>
+          <a href="#how-it-works" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">How It Works</a>
+          <a href="#supply-chain" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Supply Chain</a>
+          <a href="#dashboard" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Dashboard</a>
+          <a href="#suppliers" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Suppliers</a>
+        </div>
+
+        <!-- Right Side -->
+        <div class="flex items-center gap-3">
+          <button class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
+            <i data-lucide="search" class="w-4 h-4"></i>
+            <span class="hidden md:inline">Search</span>
+          </button>
+          <button id="connectWalletBtn" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 text-white shadow-lg shadow-brand-600/25 hover:shadow-brand-500/40 transition-all active:scale-95">
+            <i data-lucide="wallet" class="w-4 h-4"></i>
+            <span>Connect Wallet</span>
+          </button>
+          <!-- Mobile Menu Toggle -->
+          <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="lg:hidden hidden bg-slate-900/95 backdrop-blur-xl border-t border-white/5">
+      <div class="px-4 py-3 space-y-1">
+        <a href="#marketplace" class="block px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Marketplace</a>
+        <a href="#how-it-works" class="block px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">How It Works</a>
+        <a href="#supply-chain" class="block px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Supply Chain</a>
+        <a href="#dashboard" class="block px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Dashboard</a>
+        <a href="#suppliers" class="block px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Suppliers</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Background Effects -->
+    <div class="absolute inset-0">
+      <div class="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-brand-600/10 rounded-full blur-[128px]"></div>
+      <div class="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] bg-accent-600/10 rounded-full blur-[128px]"></div>
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent"></div>
+    </div>
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cpath d=&quot;M0 60V0h1v59h59v1H0z&quot; fill=&quot;%23fff&quot; fill-rule=&quot;evenodd&quot;/%3E%3C/svg%3E');"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Left Content -->
+        <div class="text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 mb-8">
+            <span class="w-2 h-2 rounded-full bg-accent-500 animate-pulse"></span>
+            <span class="text-sm font-medium text-brand-300">Built on Blockchain · Powered by Trust</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight">
+            <span class="bg-gradient-to-r from-white via-white to-slate-400 bg-clip-text text-transparent">Supply Chain</span>
+            <br />
+            <span class="bg-gradient-to-r from-brand-400 via-accent-400 to-brand-400 bg-clip-text text-transparent">You Can Trust</span>
+          </h1>
+
+          <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            The B2B marketplace with escrow payments, verified suppliers, and end-to-end supply chain transparency. Every transaction is protected.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="#marketplace" class="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-base font-semibold bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 text-white shadow-xl shadow-brand-600/25 hover:shadow-brand-500/40 transition-all active:scale-[0.98]">
+              Explore Marketplace
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+            </a>
+            <a href="#how-it-works" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-base font-semibold text-slate-300 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all active:scale-[0.98]">
+              <i data-lucide="play-circle" class="w-4 h-4"></i>
+              Watch Demo
+            </a>
+          </div>
+
+          <!-- Trust Stats -->
+          <div class="mt-12 flex items-center gap-8 justify-center lg:justify-start">
+            <div>
+              <div class="text-2xl font-bold text-white">$2.4B+</div>
+              <div class="text-sm text-slate-500">Escrow Volume</div>
+            </div>
+            <div class="w-px h-10 bg-white/10"></div>
+            <div>
+              <div class="text-2xl font-bold text-white">12K+</div>
+              <div class="text-sm text-slate-500">Verified Suppliers</div>
+            </div>
+            <div class="w-px h-10 bg-white/10"></div>
+            <div>
+              <div class="text-2xl font-bold text-white">99.7%</div>
+              <div class="text-sm text-slate-500">Trust Score</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual — Escrow Flow Card -->
+        <div class="relative hidden lg:block">
+          <div class="relative bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl">
+            <!-- Escrow Header -->
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center">
+                  <i data-lucide="shield-check" class="w-5 h-5 text-white"></i>
+                </div>
+                <div>
+                  <h3 class="text-sm font-semibold text-white">Escrow Payment</h3>
+                  <p class="text-xs text-slate-500">Transaction #FC-28491</p>
+                </div>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-500/10 border border-accent-500/20 text-xs font-medium text-accent-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent-500 animate-pulse"></span>
+                Active
+              </span>
+            </div>
+
+            <!-- Escrow Flow Steps -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-accent-500/20 border-2 border-accent-500 flex items-center justify-center">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-400"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm font-medium text-white">Buyer Deposits Funds</span>
+                    <span class="text-xs text-slate-500">Completed</span>
+                  </div>
+                  <div class="mt-1.5 w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-accent-500 rounded-full" style="width:100%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-accent-500/20 border-2 border-accent-500 flex items-center justify-center">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-400"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm font-medium text-white">Supplier Ships Goods</span>
+                    <span class="text-xs text-slate-500">Completed</span>
+                  </div>
+                  <div class="mt-1.5 w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-accent-500 rounded-full" style="width:100%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-500/20 border-2 border-brand-500 flex items-center justify-center animate-pulse">
+                  <i data-lucide="truck" class="w-4 h-4 text-brand-400"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm font-medium text-white">In Transit — Verification</span>
+                    <span class="text-xs text-brand-400">In Progress</span>
+                  </div>
+                  <div class="mt-1.5 w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-brand-500 rounded-full animate-progress" style="width:65%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 opacity-40">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-slate-800 border-2 border-slate-700 flex items-center justify-center">
+                  <i data-lucide="lock" class="w-4 h-4 text-slate-600"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm font-medium text-slate-500">Funds Released</span>
+                    <span class="text-xs text-slate-600">Pending</span>
+                  </div>
+                  <div class="mt-1.5 w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-slate-700 rounded-full" style="width:0%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Escrow Amount -->
+            <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <p class="text-xs text-slate-500 mb-1">Escrow Amount</p>
+                <p class="text-2xl font-bold text-white">$148,500.00</p>
+              </div>
+              <div class="text-right">
+                <p class="text-xs text-slate-500 mb-1">Network Fee</p>
+                <p class="text-sm font-medium text-slate-400">$42.30</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Badge -->
+          <div class="absolute -top-4 -right-4 bg-slate-900/80 backdrop-blur-lg border border-white/10 rounded-2xl p-3 shadow-xl animate-float">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center">
+                <i data-lucide="badge-check" class="w-4 h-4 text-accent-400"></i>
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-white">Verified</p>
+                <p class="text-[10px] text-slate-500">ISO 9001</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute -bottom-4 -left-4 bg-slate-900/80 backdrop-blur-lg border border-white/10 rounded-2xl p-3 shadow-xl animate-float-delayed">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-brand-500/20 flex items-center justify-center">
+                <i data-lucide="shield" class="w-4 h-4 text-brand-400"></i>
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-white">Escrowed</p>
+                <p class="text-[10px] text-slate-500">Smart Contract</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRUSTED BY ========== -->
+  <section class="relative py-12 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm font-medium text-slate-600 mb-8 uppercase tracking-widest">Trusted by Industry Leaders</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-40">
+        <span class="text-2xl font-bold text-slate-400">Maersk</span>
+        <span class="text-2xl font-bold text-slate-400">Siemens</span>
+        <span class="text-2xl font-bold text-slate-400">Bosch</span>
+        <span class="text-2xl font-bold text-slate-400">Samsung</span>
+        <span class="text-2xl font-bold text-slate-400">Unilever</span>
+        <span class="text-2xl font-bold text-slate-400">Caterpillar</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MARKETPLACE ========== -->
+  <section id="marketplace" class="relative py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 mb-4">
+          <i data-lucide="store" class="w-3.5 h-3.5 text-brand-400"></i>
+          <span class="text-xs font-semibold text-brand-300 uppercase tracking-wider">Marketplace</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Verified B2B Listings</h2>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto">Browse products from verified suppliers with built-in escrow protection and transparent supply chain tracking.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="flex flex-col sm:flex-row gap-4 mb-8">
+        <div class="relative flex-1">
+          <i data-lucide="search" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500"></i>
+          <input id="searchInput" type="text" placeholder="Search products, suppliers, categories..." class="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-900/60 border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all" />
+        </div>
+        <div class="flex gap-3">
+          <select id="categoryFilter" class="px-4 py-3 rounded-xl bg-slate-900/60 border border-white/10 text-sm text-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500/50 cursor-pointer">
+            <option value="all">All Categories</option>
+            <option value="raw-materials">Raw Materials</option>
+            <option value="electronics">Electronics</option>
+            <option value="textiles">Textiles</option>
+            <option value="machinery">Machinery</option>
+            <option value="chemicals">Chemicals</option>
+            <option value="agriculture">Agriculture</option>
+          </select>
+          <select id="trustFilter" class="px-4 py-3 rounded-xl bg-slate-900/60 border border-white/10 text-sm text-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500/50 cursor-pointer">
+            <option value="all">Trust Level</option>
+            <option value="gold">🥇 Gold</option>
+            <option value="silver">🥈 Silver</option>
+            <option value="bronze">🥉 Bronze</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div id="productGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <!-- Products injected by JS -->
+      </div>
+
+      <!-- Load More -->
+      <div class="text-center mt-10">
+        <button class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-slate-300 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all">
+          Load More Listings
+          <i data-lucide="chevron-down" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section id="how-it-works" class="relative py-20 lg:py-28 bg-slate-900/40">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-600/5 rounded-full blur-[128px]"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-500/10 border border-accent-500/20 mb-4">
+          <i data-lucide="workflow" class="w-3.5 h-3.5 text-accent-400"></i>
+          <span class="text-xs font-semibold text-accent-300 uppercase tracking-wider">How It Works</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Secure by Design</h2>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto">Every transaction follows a trust-first protocol with smart contract escrow and multi-step verification.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Step 1 -->
+        <div class="group relative bg-slate-900/60 backdrop-blur-sm border border-white/5 hover:border-brand-500/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1">
+          <div class="absolute top-4 right-4 text-5xl font-black text-white/[0.03]">01</div>
+          <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center mb-5 group-hover:bg-brand-500/20 transition-colors">
+            <i data-lucide="search" class="w-6 h-6 text-brand-400"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Find & Verify</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Search verified suppliers by trust score, certifications, and supply chain history.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="group relative bg-slate-900/60 backdrop-blur-sm border border-white/5 hover:border-accent-500/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1">
+          <div class="absolute top-4 right-4 text-5xl font-black text-white/[0.03]">02</div>
+          <div class="w-12 h-12 rounded-xl bg-accent-500/10 flex items-center justify-center mb-5 group-hover:bg-accent-500/20 transition-colors">
+            <i data-lucide="lock" class="w-6 h-6 text-accent-400"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Escrow Lock</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Funds are locked in a smart contract escrow until delivery is confirmed and verified.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="group relative bg-slate-900/60 backdrop-blur-sm border border-white/5 hover:border-yellow-500/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1">
+          <div class="absolute top-4 right-4 text-5xl font-black text-white/[0.03]">03</div>
+          <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-5 group-hover:bg-yellow-500/20 transition-colors">
+            <i data-lucide="scan-line" class="w-6 h-6 text-yellow-400"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Ship & Track</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Real-time supply chain tracking with IoT verification at every checkpoint.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="group relative bg-slate-900/60 backdrop-blur-sm border border-white/5 hover:border-purple-500/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1">
+          <div class="absolute top-4 right-4 text-5xl font-black text-white/[0.03]">04</div>
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5 group-hover:bg-purple-500/20 transition-colors">
+            <i data-lucide="badge-check" class="w-6 h-6 text-purple-400"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">Confirm & Release</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Buyer confirms delivery. Escrow releases funds. Trust scores update automatically.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUPPLY CHAIN TRACKER ========== -->
+  <section id="supply-chain" class="relative py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 mb-4">
+          <i data-lucide="git-branch" class="w-3.5 h-3.5 text-yellow-400"></i>
+          <span class="text-xs font-semibold text-yellow-300 uppercase tracking-wider">Supply Chain</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">End-to-End Transparency</h2>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto">Track every step of your product's journey from raw material to delivery with immutable blockchain records.</p>
+      </div>
+
+      <!-- Interactive Chain -->
+      <div class="relative bg-slate-900/40 border border-white/5 rounded-3xl p-6 lg:p-10 overflow-hidden">
+        <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-500/20 via-accent-500/20 to-brand-500/20 hidden lg:block"></div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <!-- Node 1 -->
+          <div class="chain-node group relative text-center" data-status="completed">
+            <div class="relative mx-auto w-16 h-16 rounded-2xl bg-accent-500/20 border-2 border-accent-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="mountain" class="w-7 h-7 text-accent-400"></i>
+              <div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-accent-500 flex items-center justify-center">
+                <i data-lucide="check" class="w-3 h-3 text-white"></i>
+              </div>
+            </div>
+            <h4 class="text-sm font-semibold text-white mb-1">Raw Material</h4>
+            <p class="text-xs text-slate-500">Mined · Jan 15</p>
+            <p class="text-[10px] text-accent-400 mt-1 font-medium">Verified ✓</p>
+          </div>
+
+          <!-- Node 2 -->
+          <div class="chain-node group relative text-center" data-status="completed">
+            <div class="relative mx-auto w-16 h-16 rounded-2xl bg-accent-500/20 border-2 border-accent-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="factory" class="w-7 h-7 text-accent-400"></i>
+              <div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-accent-500 flex items-center justify-center">
+                <i data-lucide="check" class="w-3 h-3 text-white"></i>
+              </div>
+            </div>
+            <h4 class="text-sm font-semibold text-white mb-1">Processing</h4>
+            <p class="text-xs text-slate-500">Refined · Feb 3</p>
+            <p class="text-[10px] text-accent-400 mt-1 font-medium">Verified ✓</p>
+          </div>
+
+          <!-- Node 3 -->
+          <div class="chain-node group relative text-center" data-status="completed">
+            <div class="relative mx-auto w-16 h-16 rounded-2xl bg-accent-500/20 border-2 border-accent-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="box" class="w-7 h-7 text-accent-400"></i>
+              <div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-accent-500 flex items-center justify-center">
+                <i data-lucide="check" class="w-3 h-3 text-white"></i>
+              </div>
+            </div>
+            <h4 class="text-sm font-semibold text-white mb-1">Manufacturing</h4>
+            <p class="text-xs text-slate-500">Assembled · Feb 20</p>
+            <p class="text-[10px] text-accent-400 mt-1 font-medium">Verified ✓</p>
+          </div>
+
+          <!-- Node 4 -->
+          <div class="chain-node group relative text-center" data-status="active">
+            <div class="relative mx-auto w-16 h-16 rounded-2xl bg-brand-500/20 border-2 border-brand-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform animate-pulse-border">
+              <i data-lucide="truck" class="w-7 h-7 text-brand-400"></i>
+              <div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-brand-500 flex items-center justify-center animate-ping">
+                <span class="w-2 h-2 rounded-full bg-brand-400"></span>
+              </div>
+            </div>
+            <h4 class="text-sm font-semibold text-white mb-1">In Transit</h4>
+            <p class="text-xs text-slate-500">ETA Mar 10</p>
+            <p class="text-[10px] text-brand-400 mt-1 font-medium">Live Tracking</p>
+          </div>
+
+          <!-- Node 5 -->
+          <div class="chain-node group relative text-center" data-status="pending">
+            <div class="relative mx-auto w-16 h-16 rounded-2xl bg-slate-800/50 border-2 border-slate-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform opacity-50">
+              <i data-lucide="scan-line" class="w-7 h-7 text-slate-600"></i>
+            </div>
+            <h4 class="text-sm font-semibold text-slate-500 mb-1">Quality Check</h4>
+            <p class="text-xs text-slate-600">Pending</p>
+            <p class="text-[10px] text-slate-600 mt-1">Awaiting</p>
+          </div>
+
+          <!-- Node 6 -->
+          <div class="chain-node group relative text-center" data-status="pending">
+            <div class="relative mx-auto w-16 h-16 rounded-2xl bg-slate-800/50 border-2 border-slate-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform opacity-50">
+              <i data-lucide="package-check" class="w-7 h-7 text-slate-600"></i>
+            </div>
+            <h4 class="text-sm font-semibold text-slate-500 mb-1">Delivered</h4>
+            <p class="text-xs text-slate-600">Pending</p>
+            <p class="text-[10px] text-slate-600 mt-1">Awaiting</p>
+          </div>
+        </div>
+
+        <!-- Chain Details -->
+        <div class="mt-8 pt-6 border-t border-white/5">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-slate-800/30 rounded-xl p-4">
+              <p class="text-xs text-slate-500 mb-1">Product</p>
+              <p class="text-sm font-semibold text-white">Industrial Copper Wire</p>
+            </div>
+            <div class="bg-slate-800/30 rounded-xl p-4">
+              <p class="text-xs text-slate-500 mb-1">Batch ID</p>
+              <p class="text-sm font-mono font-semibold text-brand-400">#BCH-2024-0847</p>
+            </div>
+            <div class="bg-slate-800/30 rounded-xl p-4">
+              <p class="text-xs text-slate-500 mb-1">Origin</p>
+              <p class="text-sm font-semibold text-white">Chile → Germany</p>
+            </div>
+            <div class="bg-slate-800/30 rounded-xl p-4">
+              <p class="text-xs text-slate-500 mb-1">Carbon Footprint</p>
+              <p class="text-sm font-semibold text-accent-400">2.4t CO₂ (Low)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DASHBOARD / TRUST SCORE ========== -->
+  <section id="dashboard" class="relative py-20 lg:py-28 bg-slate-900/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 mb-4">
+          <i data-lucide="bar-chart-3" class="w-3.5 h-3.5 text-purple-400"></i>
+          <span class="text-xs font-semibold text-purple-300 uppercase tracking-wider">Dashboard</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Trust & Verification</h2>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto">Real-time metrics, trust scores, and verification status across your entire supply chain network.</p>
+      </div>
+
+      <!-- Dashboard Grid -->
+      <div class="grid lg:grid-cols-3 gap-6">
+        <!-- Trust Score Card -->
+        <div class="lg:col-span-1 bg-slate-900/60 backdrop-blur-sm border border-white/5 rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-sm font-semibold text-white">Trust Score</h3>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-accent-500/10 text-accent-400 font-medium">Excellent</span>
+          </div>
+          <!-- Trust Gauge -->
+          <div class="relative mx-auto w-48 h-48 mb-6">
+            <svg class="w-full h-full -rotate-90" viewBox="0 0 200 200">
+              <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="12" />
+              <circle cx="100" cy="100" r="85" fill="none" stroke="url(#trustGradient)" stroke-width="12" stroke-linecap="round" stroke-dasharray="534" stroke-dashoffset="16" class="trust-ring" />
+              <defs>
+                <linearGradient id="trustGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#338dff" />
+                  <stop offset="100%" style="stop-color:#00e682" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span class="text-4xl font-black text-white">97</span>
+              <span class="text-xs text-slate-500">out of 100</span>
+            </div>
+          </div>
+          <!-- Trust Breakdown -->
+          <div class="space-y-3">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs text-slate-400">Delivery Reliability</span>
+                <span class="text-xs font-semibold text-accent-400">98%</span>
+              </div>
+              <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-accent-500 rounded-full" style="width:98%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs text-slate-400">Quality Consistency</span>
+                <span class="text-xs font-semibold text-brand-400">96%</span>
+              </div>
+              <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-brand-500 rounded-full" style="width:96%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs text-slate-400">Documentation Accuracy</span>
+                <span class="text-xs font-semibold text-purple-400">94%</span>
+              </div>
+              <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-purple-500 rounded-full" style="width:94%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs text-slate-400">Dispute Resolution</span>
+                <span class="text-xs font-semibold text-yellow-400">99%</span>
+              </div>
+              <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-yellow-500 rounded-full" style="width:99%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle Column - Stats -->
+        <div class="lg:col-span-1 space-y-6">
+          <!-- Active Escrows -->
+          <div class="bg-slate-900/60 backdrop-blur-sm border border-white/5 rounded-2xl p-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-sm font-semibold text-white">Active Escrows</h3>
+              <span class="text-xs text-slate-500">Last 30 days</span>
+            </div>
+            <div class="text-3xl font-bold text-white mb-1">24</div>
+            <p class="text-sm text-slate-500 mb-4">Totaling <span class="text-brand-400 font-semibold">$3.2M</span> in escrow</p>
+            <!-- Mini Chart -->
+            <div class="flex items-end gap-1.5 h-20">
+              <div class="flex-1 bg-brand-500/20 rounded-t" style="height:40%"></div>
+              <div class="flex-1 bg-brand-500/30 rounded-t" style="height:55%"></div>
+              <div class="flex-1 bg-brand-500/20 rounded-t" style="height:45%"></div>
+              <div class="flex-1 bg-brand-500/40 rounded-t" style="height:70%"></div>
+              <div class="flex-1 bg-brand-500/30 rounded-t" style="height:60%"></div>
+              <div class="flex-1 bg-brand-500/50 rounded-t" style="height:80%"></div>
+              <div class="flex-1 bg-brand-500/40 rounded-t" style="height:65%"></div>
+              <div class="flex-1 bg-brand-500/60 rounded-t" style="height:90%"></div>
+              <div class="flex-1 bg-brand-500/50 rounded-t" style="height:75%"></div>
+              <div class="flex-1 bg-accent-500/60 rounded-t" style="height:100%"></div>
+            </div>
+          </div>
+
+          <!-- Verification Status -->
+          <div class="bg-slate-900/60 backdrop-blur-sm border border-white/5 rounded-2xl p-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-sm font-semibold text-white">Verification Status</h3>
+              <i data-lucide="shield-check" class="w-4 h-4 text-accent-400"></i>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-accent-500/5 border border-accent-500/10">
+                <div class="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-400"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs font-medium text-white">ISO 9001:2015</p>
+                  <p class="text-[10px] text-slate-500">Quality Management</p>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-accent-500/10 text-accent-400 font-medium">Active</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-accent-500/5 border border-accent-500/10">
+                <div class="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-400"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs font-medium text-white">ISO 14001:2015</p>
+                  <p class="text-[10px] text-slate-500">Environmental Mgmt</p>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-accent-500/10 text-accent-400 font-medium">Active</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-yellow-500/5 border border-yellow-500/10">
+                <div class="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="clock" class="w-4 h-4 text-yellow-400"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs font-medium text-white">SA8000</p>
+                  <p class="text-[10px] text-slate-500">Social Accountability</p>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-yellow-500/10 text-yellow-400 font-medium">Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column - Recent Transactions -->
+        <div class="lg:col-span-1 bg-slate-900/60 backdrop-blur-sm border border-white/5 rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-sm font-semibold text-white">Recent Transactions</h3>
+            <button class="text-xs text-brand-400 hover:text-brand-300 font-medium transition-colors">View All</button>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-accent-500/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="arrow-up-right" class="w-5 h-5 text-accent-400"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-white truncate">Copper Wire Order</p>
+                <p class="text-xs text-slate-500">2 hours ago</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-semibold text-accent-400">+$148.5K</p>
+                <p class="text-[10px] text-slate-500">Completed</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="arrow-down-left" class="w-5 h-5 text-brand-400"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-white truncate">Steel Alloy Purchase</p>
+                <p class="text-xs text-slate-500">5 hours ago</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-semibold text-brand-400">$89.2K</p>
+                <p class="text-[10px] text-brand-400">In Escrow</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-accent-500/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="arrow-up-right" class="w-5 h-5 text-accent-400"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-white truncate">Textile Shipment</p>
+                <p class="text-xs text-slate-500">1 day ago</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-semibold text-accent-400">+$42.8K</p>
+                <p class="text-[10px] text-slate-500">Completed</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-400"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-white truncate">Chemical Supply</p>
+                <p class="text-xs text-slate-500">2 days ago</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-semibold text-yellow-400">$67.1K</p>
+                <p class="text-[10px] text-yellow-400">Disputed</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-accent-500/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="arrow-up-right" class="w-5 h-5 text-accent-400"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-white truncate">Electronics Components</p>
+                <p class="text-xs text-slate-500">3 days ago</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-semibold text-accent-400">+$234.0K</p>
+                <p class="text-[10px] text-slate-500">Completed</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="arrow-down-left" class="w-5 h-5 text-brand-400"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-white truncate">Machinery Parts</p>
+                <p class="text-xs text-slate-500">4 days ago</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-semibold text-brand-400">$56.3K</p>
+                <p class="text-[10px] text-brand-400">In Escrow</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUPPLIERS ========== -->
+  <section id="suppliers" class="relative py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 mb-4">
+          <i data-lucide="users" class="w-3.5 h-3.5 text-brand-400"></i>
+          <span class="text-xs font-semibold text-brand-300 uppercase tracking-wider">Suppliers</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Verified Suppliers</h2>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto">Every supplier is thoroughly vetted with on-chain verification, certification checks, and community trust scores.</p>
+      </div>
+
+      <div id="supplierGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Suppliers injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ESCROW CTA ========== -->
+  <section class="relative py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative bg-gradient-to-br from-brand-950 via-slate-900 to-brand-950 border border-brand-500/10 rounded-3xl p-8 lg:p-16 overflow-hidden text-center">
+        <!-- Glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-brand-600/10 rounded-full blur-[100px]"></div>
+
+        <div class="relative">
+          <div class="w-16 h-16 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="shield" class="w-8 h-8 text-brand-400"></i>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Start Trading with Confidence</h2>
+          <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-8">Join thousands of businesses already using FairChain's escrow-protected marketplace for secure, transparent B2B transactions.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button id="ctaConnectBtn" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 text-white shadow-xl shadow-brand-600/25 hover:shadow-brand-500/40 transition-all active:scale-[0.98]">
+              <i data-lucide="rocket" class="w-5 h-5"></i>
+              Get Started Free
+            </button>
+            <a href="#how-it-works" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-slate-300 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all active:scale-[0.98]">
+              Learn More
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="border-t border-white/5 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+        <!-- Brand -->
+        <div class="col-span-2 lg:col-span-1">
+          <a href="#" class="flex items-center gap-2.5 mb-4">
+            <div class="w-8 h-8 bg-gradient-to-br from-brand-500 to-accent-500 rounded-xl flex items-center justify-center">
+              <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+            </div>
+            <span class="text-lg font-bold text-white">FairChain</span>
+          </a>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4">Trust-based supply chain and B2B marketplace with escrow protection.</p>
+          <div class="flex gap-3">
+            <a href="#" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all">
+              <i data-lucide="twitter" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all">
+              <i data-lucide="github" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Platform -->
+        <div>
+          <h4 class="text-sm font-semibold text-white mb-4">Platform</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#marketplace" class="text-sm text-slate-500 hover:text-white transition-colors">Marketplace</a></li>
+            <li><a href="#supply-chain" class="text-sm text-slate-500 hover:text-white transition-colors">Supply Chain</a></li>
+            <li><a href="#dashboard" class="text-sm text-slate-500 hover:text-white transition-colors">Dashboard</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Escrow</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <h4 class="text-sm font-semibold text-white mb-4">Company</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">About</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Press</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h4 class="text-sm font-semibold text-white mb-4">Resources</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Documentation</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">API Reference</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Help Center</a></li>
+            <li><a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Status</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-slate-600">© 2024 FairChain. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="text-xs text-slate-600 hover:text-slate-400 transition-colors">Privacy Policy</a>
+          <a href="#" class="text-xs text-slate-600 hover:text-slate-400 transition-colors">Terms of Service</a>
+          <a href="#" class="text-xs text-slate-600 hover:text-slate-400 transition-colors">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== PRODUCT MODAL ========== -->
+  <div id="productModal" class="fixed inset-0 z-[100] hidden">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" id="modalOverlay"></div>
+    <div class="relative flex items-center justify-center min-h-screen p-4">
+      <div id="modalContent" class="relative bg-slate-900 border border-white/10 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+        <!-- Content injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== WALLET TOAST ========== -->
+  <div id="walletToast" class="fixed bottom-6 right-6 z-[110] hidden">
+    <div class="flex items-center gap-3 px-5 py-3.5 rounded-xl bg-slate-800 border border-white/10 shadow-2xl">
+      <div class="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center flex-shrink-0">
+        <i data-lucide="wallet" class="w-4 h-4 text-accent-400"></i>
+      </div>
+      <div>
+        <p id="toastMessage" class="text-sm font-medium text-white">Wallet Connected!</p>
+        <p id="toastSub" class="text-xs text-slate-500">0x7f3a...4b2c</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>
