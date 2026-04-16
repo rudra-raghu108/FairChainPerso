@@ -1,0 +1,1251 @@
+<!-- Login - FairChain -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FairChain | Secure Entry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#1f56b9",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#111d23",
+                    "on-tertiary-container": "#c8d5dd",
+                    "inverse-primary": "#b1c5ff",
+                    "tertiary": "#39454c",
+                    "surface-dim": "#d9dadc",
+                    "surface-bright": "#f8f9fb",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c3c6d6",
+                    "on-primary-fixed-variant": "#00419e",
+                    "on-primary-container": "#c3d2ff",
+                    "surface-container-highest": "#e1e2e4",
+                    "surface-container": "#edeef0",
+                    "secondary-fixed": "#8df7c1",
+                    "on-tertiary-fixed-variant": "#3c494f",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#71dba6",
+                    "surface": "#f8f9fb",
+                    "surface-tint": "#2559bd",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#006c47",
+                    "on-surface": "#191c1e",
+                    "on-error-container": "#93000a",
+                    "background": "#f8f9fb",
+                    "on-primary-fixed": "#001946",
+                    "on-secondary-container": "#00714b",
+                    "surface-container-high": "#e7e8ea",
+                    "on-surface-variant": "#434654",
+                    "on-secondary-fixed-variant": "#005235",
+                    "tertiary-fixed": "#d7e4ec",
+                    "surface-container-low": "#f3f4f6",
+                    "on-secondary-fixed": "#002113",
+                    "outline": "#737685",
+                    "tertiary-container": "#505d63",
+                    "inverse-on-surface": "#f0f1f3",
+                    "inverse-surface": "#2e3132",
+                    "primary": "#003e97",
+                    "surface-variant": "#e1e2e4",
+                    "secondary-container": "#8af5be",
+                    "primary-fixed": "#dae2ff",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#bbc8d0",
+                    "primary-fixed-dim": "#b1c5ff",
+                    "on-primary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased overflow-hidden">
+<div class="relative min-h-screen flex items-center justify-center p-6 md:p-12">
+<!-- Abstract Architectural Background (The Immutable Ledger theme) -->
+<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] right-[-5%] w-[60%] h-[80%] bg-primary-fixed-dim opacity-20 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-20%] left-[-10%] w-[50%] h-[70%] bg-secondary-container opacity-10 blur-[100px] rounded-full"></div>
+<!-- Asymmetric Grid Lines (Ghost Border Fallback) -->
+<div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(to right, #737685 1px, transparent 1px), linear-gradient(to bottom, #737685 1px, transparent 1px); background-size: 80px 80px;">
+</div>
+</div>
+<!-- Main Login Canvas -->
+<main class="relative z-10 w-full max-w-[1100px] flex flex-col md:flex-row bg-surface-container-lowest rounded-full overflow-hidden shadow-[0_40px_100px_rgba(0,62,151,0.06)] border border-outline-variant/10">
+<!-- Branding/Visual Section -->
+<section class="hidden md:flex md:w-1/2 bg-primary relative p-16 flex-col justify-between text-on-primary">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover mix-blend-overlay opacity-40" data-alt="Modern geometric skyscraper facade with clean glass lines and sky reflections symbolizing structural integrity and transparency" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdGXpVusY45yqUJKKoXjp8cGvoBmil6nvTuPDQoFV-zUM9j0F1YFbaDKl_WsISNEtcN9UE1FR0nmDHImCyRhdZ6aKv50KjX0ge2dMMdX3tgbwrgARPKj_5isOT3n_ne0wOUZh80bTAPEi4b7QiAE-mU-PtzI6AwPjxNISwhwnigv1W6CHUFPyN7MiXlhL6bBQK4w1Bcsni8oHO_cAIa9q66Ms1ZsU_oR-As6RnoXMjRjeGBPhBFXxTQpYB1C5Mp8loYJELTnZ0b_p-"/>
+<div class="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-primary-container"></div>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-12">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<h1 class="font-headline font-extrabold text-3xl tracking-tight">FairChain</h1>
+</div>
+<div class="space-y-6 max-w-sm">
+<h2 class="font-headline text-5xl font-bold leading-[1.1] tracking-tight">The Architectural Trust Framework.</h2>
+<p class="text-on-primary/80 font-light text-lg leading-relaxed">Secure your position in the global supply chain with our immutable ledger system.</p>
+</div>
+</div>
+<div class="relative z-10 flex items-center gap-4">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a professional male executive in a suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgX3f3ztXg0Exew2NryNkm2cEU5xAFJarcRVgf9UZ_nUnSEXFPklJ-RTYY1V8-ZFwTiCENT2bKUuIB_jeeMFAS0tE4_B42xcKCIgOok696tsIx7VANs1OhosQ3tXZ5uoHsBQBlVP7WAOrmm_59H4vIxgmXpBjBWIl7k42yq2dmSvAoMqPT0ERscCsuKR-fgPh_EL7gRCCCbt2HMVkJqKMDdVW0AvcgcgE4IcWitgVro-_a89cVewIA1QvG4Chrc23UvwjPt1qebD7A"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a smiling professional female business leader" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgtYRUZV0aBxIujK-B4uSYOo7dTvhnVGw-FLphY9w3ZUdRUCqKwEMZt1GlZU8mgoPRlbahMRP6P6vfEaualVA9F-36Bbvzn4B3sJRYw1vF_bgywU_DEAZRahqTuvGD-Juo33vBYjoRhaR5T3nj_mQoHmu-HGCs2YE_hatHOdMReUAAxDHVgDNg-DQN9MbHFtFHapQ2PhR7Tidcnua5kv7aNojt9iQ6WhQ4nxBMchSxfeYp_IK5bQfg7Pt8puNIcvcID_lGfr9vf_FH"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-primary bg-secondary-container flex items-center justify-center text-secondary text-xs font-bold">
+                            99+
+                        </div>
+</div>
+<span class="text-sm font-medium text-on-primary/90">Trusted by over 10k+ verified manufacturers worldwide.</span>
+</div>
+</section>
+<!-- Login Form Section -->
+<section class="w-full md:w-1/2 p-8 md:p-20 flex flex-col justify-center bg-surface-container-lowest">
+<!-- Mobile Logo -->
+<div class="md:hidden flex items-center gap-2 mb-12">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-headline font-extrabold text-2xl tracking-tight text-primary">FairChain</span>
+</div>
+<div class="mb-10">
+<h3 class="font-headline text-3xl font-bold text-on-surface mb-2">Welcome Back</h3>
+<p class="text-on-surface-variant">Enter your credentials to access the portal.</p>
+</div>
+<form action="#" class="space-y-6">
+<div class="space-y-2">
+<label class="font-label text-sm font-semibold text-on-surface-variant flex items-center gap-2" for="email">
+<span class="material-symbols-outlined text-sm">alternate_email</span>
+                            Email Address
+                        </label>
+<input class="w-full px-5 py-4 bg-surface-container-low border-0 rounded-xl focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all outline-none text-on-surface placeholder:text-outline/60" id="email" placeholder="name@company.com" type="email"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="font-label text-sm font-semibold text-on-surface-variant flex items-center gap-2" for="password">
+<span class="material-symbols-outlined text-sm">lock</span>
+                                Password
+                            </label>
+<a class="text-xs font-bold text-primary hover:text-primary-container transition-colors" href="#">Forgot password?</a>
+</div>
+<div class="relative">
+<input class="w-full px-5 py-4 bg-surface-container-low border-0 rounded-xl focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all outline-none text-on-surface placeholder:text-outline/60" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/30 transition-all cursor-pointer" id="remember" type="checkbox"/>
+<label class="ml-3 text-sm font-medium text-on-surface-variant cursor-pointer select-none" for="remember">Remember this device for 30 days</label>
+</div>
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary font-bold py-5 rounded-xl transition-all active:scale-[0.98] shadow-lg shadow-primary/10" type="submit">
+                        Sign In to Dashboard
+                    </button>
+</form>
+<!-- Social/External Login Divider -->
+<div class="my-10 flex items-center gap-4">
+<div class="h-[1px] flex-1 bg-outline-variant/20"></div>
+<span class="text-xs font-bold text-outline uppercase tracking-widest">Enterprise Access</span>
+<div class="h-[1px] flex-1 bg-outline-variant/20"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-3 py-4 border border-outline-variant/30 rounded-xl hover:bg-surface-container transition-colors">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOWjNF1_IF84Rjxctudiopa-tIIAwPt10t99agXOM3sVEI80R-mLv-yhegFIDppPXSY1KYxYjhGArO_xXBcpQUTnKVcZDbMJZ3wzUVxFX2xLw46bDhFOc5K3RT1-VXi0oXqG3LBhWvfkCfi7bo24FpYoNn7mVXBmNY1rz0NL08Au50lQXKp8R5ho4fjuHcP_2uzPy2qMu1KBH3G2mQjfgCJCTiqtUiKc4zYT10NfsltrLgKJ-uTYx2F9gJKs28Ij137WcR5a8R0Idv"/>
+<span class="text-sm font-semibold">Google</span>
+</button>
+<button class="flex items-center justify-center gap-3 py-4 border border-outline-variant/30 rounded-xl hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">passkey</span>
+<span class="text-sm font-semibold">Passkey</span>
+</button>
+</div>
+<!-- Footer CTA -->
+<div class="mt-12 pt-8 border-t border-outline-variant/10 text-center">
+<p class="text-on-surface-variant text-sm font-medium">
+                        New to the network? 
+                        <a class="ml-1 text-secondary font-bold hover:underline decoration-2 underline-offset-4" href="#">Create Account</a>
+</p>
+</div>
+</section>
+</main>
+<!-- Auxiliary Floating Elements (The soul of the UI) -->
+<div class="fixed bottom-10 right-10 flex items-center gap-6 z-20">
+<div class="glass-panel px-4 py-2 rounded-full border border-white/50 shadow-xl flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-[11px] font-bold text-on-surface uppercase tracking-tighter">System Status: Verified</span>
+</div>
+<button class="w-12 h-12 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center shadow-lg hover:bg-on-tertiary-fixed transition-all">
+<span class="material-symbols-outlined">help_center</span>
+</button>
+</div>
+</div>
+</body></html>
+
+<!-- Artisan Dashboard -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FairChain Artisan Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#1f56b9",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#111d23",
+                        "on-tertiary-container": "#c8d5dd",
+                        "inverse-primary": "#b1c5ff",
+                        "tertiary": "#39454c",
+                        "surface-dim": "#d9dadc",
+                        "surface-bright": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "on-primary-fixed-variant": "#00419e",
+                        "on-primary-container": "#c3d2ff",
+                        "surface-container-highest": "#e1e2e4",
+                        "surface-container": "#edeef0",
+                        "secondary-fixed": "#8df7c1",
+                        "on-tertiary-fixed-variant": "#3c494f",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#71dba6",
+                        "surface": "#f8f9fb",
+                        "surface-tint": "#2559bd",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#006c47",
+                        "on-surface": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "on-primary-fixed": "#001946",
+                        "on-secondary-container": "#00714b",
+                        "surface-container-high": "#e7e8ea",
+                        "on-surface-variant": "#434654",
+                        "on-secondary-fixed-variant": "#005235",
+                        "tertiary-fixed": "#d7e4ec",
+                        "surface-container-low": "#f3f4f6",
+                        "on-secondary-fixed": "#002113",
+                        "outline": "#737685",
+                        "tertiary-container": "#505d63",
+                        "inverse-on-surface": "#f0f1f3",
+                        "inverse-surface": "#2e3132",
+                        "primary": "#003e97",
+                        "surface-variant": "#e1e2e4",
+                        "secondary-container": "#8af5be",
+                        "primary-fixed": "#dae2ff",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#bbc8d0",
+                        "primary-fixed-dim": "#b1c5ff",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Manrope', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="hidden md:flex flex-col gap-2 py-8 pr-4 h-full w-80 left-0 fixed bg-surface-container-low z-40">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<h2 class="font-headline font-black text-primary text-lg">Artisan Portal</h2>
+<p class="text-xs text-on-surface-variant font-medium">Verified Manufacturer</p>
+<p class="text-[10px] text-secondary font-bold">Trust Score: 99.8%</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="bg-surface-container-lowest text-primary rounded-r-full font-bold flex items-center gap-4 py-3 px-6 transition-transform translate-x-1" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label text-sm">Overview</span>
+</a>
+<a class="text-on-surface-variant px-6 flex items-center gap-4 py-3 hover:bg-surface transition-colors" href="#">
+<span class="material-symbols-outlined">local_mall</span>
+<span class="font-label text-sm">Marketplace</span>
+</a>
+<a class="text-on-surface-variant px-6 flex items-center gap-4 py-3 hover:bg-surface transition-colors" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label text-sm">Payments</span>
+</a>
+<a class="text-on-surface-variant px-6 flex items-center gap-4 py-3 hover:bg-surface transition-colors" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label text-sm">Transparency</span>
+</a>
+<a class="text-on-surface-variant px-6 flex items-center gap-4 py-3 hover:bg-surface transition-colors" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label text-sm">Disputes</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-80 pb-24 md:pb-8">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-6 py-4 w-full bg-surface sticky top-0 z-30">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-xl font-headline font-extrabold text-primary tracking-tight">FairChain</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex flex-col text-right">
+<span class="text-sm font-bold text-on-surface">Artisan Workspace</span>
+<span class="text-xs text-on-surface-variant">ID: FC-99281</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="professional portrait of a middle-aged artisan with a warm smile, neutral studio background, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0j3-KLw7vLG8GNXtHKI3cZa6AVFmXUsdKpw-ifc_dtaBW3zlGZuZWIkhVRg2rQ-kn4On99gGt8CUNt-NdykpiFir1QyOUqE47tL8SEqARW5TsM91GMY8hxoDLZwAmE0IIIy_fBBFUt1pYd3xtrBZ6iZVKiNLCN716st4hnUjh2WdzmZlcDb-1G4sZvfCLUJ5JpEr3OVGsS_mMJOoSOGh6VTqeUwk-uT108T4M7SKh01rwQO8DKkJJrwqKYp0_Lgq6ukqFJH_AXlse"/>
+</div>
+</div>
+</header>
+<div class="px-6 py-8 max-w-7xl mx-auto space-y-8">
+<!-- Hero Stats Row (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Trust Score Card -->
+<div class="md:col-span-5 bg-primary-container text-on-primary-container p-8 rounded-full flex flex-col justify-between relative overflow-hidden">
+<div class="z-10">
+<span class="text-xs font-label uppercase tracking-widest opacity-80">Immutable Integrity</span>
+<h3 class="text-5xl font-headline font-black mt-2">99.8%</h3>
+<p class="text-lg font-headline font-medium opacity-90">Global Trust Score</p>
+</div>
+<div class="mt-8 z-10 flex gap-2">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-3 py-1 rounded-full font-bold">VERIFIED ARTISAN</span>
+<span class="bg-white/10 text-white text-[10px] px-3 py-1 rounded-full font-bold">TOP 1%</span>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+<!-- Quick Metrics Grid -->
+<div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl space-y-4">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<span class="text-secondary font-bold text-xs">+12%</span>
+</div>
+<div>
+<p class="text-4xl font-headline font-bold text-on-surface">24</p>
+<p class="text-sm text-on-surface-variant">Active Shipments</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl space-y-4">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+<span class="text-on-surface-variant font-bold text-xs">Escrow</span>
+</div>
+<div>
+<p class="text-4xl font-headline font-bold text-on-surface">$12.4k</p>
+<p class="text-sm text-on-surface-variant">Pending Settlements</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Production Status & Map Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-6">
+<div class="flex justify-between items-end">
+<h2 class="text-2xl font-headline font-bold">Production Status</h2>
+<button class="text-primary text-sm font-bold hover:underline">View History</button>
+</div>
+<div class="space-y-4">
+<!-- Production Item 1 -->
+<div class="bg-surface-container p-6 rounded-xl flex items-center gap-6">
+<div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-dim shrink-0">
+<img alt="Leather Bag" class="w-full h-full object-cover" data-alt="close-up of a handcrafted cognac leather briefcase, focus on stitching detail, soft warm lighting, minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiCqsyDANLNuuYCm25VYic7P903i_OYp4-IFtfBEJgCD-wZ6RG3Oy5ksmO5XZy6aEUMVSKhStXJb1KRNWiR2e9d-HWu75tizzS2tnRuQjOXJkjMXT7mGD1gAV2h4taTMHw68B15cYj7PxLHa9brCjNQfQxDvXDuy7tJDVOIwlnSmXmv6TFjf78lgwh3dbYrHN4NsjW6IguA9jHHEXMHKnvyHHx5qbkplWPN0zDEa7fN7R5bjUl7nODSbilX0_LRcev0FJCGgi7kW3W"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline font-bold text-on-surface truncate">Heritage Leather Satchel</h4>
+<span class="text-[10px] font-bold text-secondary uppercase bg-secondary-container px-2 py-0.5 rounded">In Quality Check</span>
+</div>
+<div class="flex items-center gap-1 text-xs text-on-surface-variant mb-3">
+<span>Batch #FC-102-B</span>
+<span class="mx-1">•</span>
+<span>80 Units</span>
+</div>
+<!-- Progress Steps -->
+<div class="flex items-center gap-2">
+<div class="h-1.5 flex-1 bg-primary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-primary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-primary rounded-full relative">
+<div class="absolute inset-0 bg-primary opacity-30 animate-pulse rounded-full"></div>
+</div>
+<div class="h-1.5 flex-1 bg-surface-variant rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Production Item 2 -->
+<div class="bg-surface-container p-6 rounded-xl flex items-center gap-6">
+<div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-dim shrink-0">
+<img alt="Ceramic Vase" class="w-full h-full object-cover" data-alt="textured ceramic pottery vase in matte ivory, artisan workshop setting with clay and tools in blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmSVfdABHNiRiCWPfCzfZLyi_Cvu6UKu651SFT6r9nniccT-mqsfNwYj8AlDJWIvjc2Y2anlxLpPQBs5Q0QJHsxNTyl_9iuPAZvuTjjE7tVs1iUaf7UKF8Pjvy43Dc-mtOQkANu5Q7yW_zSdIwV73-2H3HhvTu0qfjI6Q8ZBO8TnJrYvJ-LOk5w6hoy3_EYycuDfbHi1rjcJNW70wtEnZTXw-dWg7DJCRkQ65cLxosWZ2uas8uMH9-iO4h57jO2Y2aDXqj5Gpjb6r_"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline font-bold text-on-surface truncate">Stone-Fired Ceramic Vase</h4>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase bg-surface-variant px-2 py-0.5 rounded">Raw Material Sourcing</span>
+</div>
+<div class="flex items-center gap-1 text-xs text-on-surface-variant mb-3">
+<span>Batch #FC-205-A</span>
+<span class="mx-1">•</span>
+<span>150 Units</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-1.5 flex-1 bg-primary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-surface-variant rounded-full"></div>
+<div class="h-1.5 flex-1 bg-surface-variant rounded-full"></div>
+<div class="h-1.5 flex-1 bg-surface-variant rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Transparency Map Card -->
+<div class="bg-surface-container-high rounded-2xl overflow-hidden flex flex-col">
+<div class="p-6">
+<h3 class="font-headline font-bold text-lg mb-1">Supply Chain Nodes</h3>
+<p class="text-xs text-on-surface-variant">Live verification tracking</p>
+</div>
+<div class="flex-1 min-h-[300px] relative bg-surface-dim">
+<img alt="Map" class="w-full h-full object-cover" data-alt="abstract stylized topographic map in shades of blue and gray with glowing green data points connecting cities" data-location="Florence, Italy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU51dNN3S8bITj6MJpaKV6bL5Q_G-mzV_PCx7WXZ8DQiNPihdEfRcFEH6H06Q0Le_fQ1Z0ohNhQVhaa1e9weXXHb9JnpQYuN_Rkvj1-NIQqKLPn4L_189267r70OplBHM-nz31z19gmUya0ZkZgR9XVllROm238fmWbcUGTOqMiDjKjuFMuYxgw9AjuDh7kAxsD0-Yxr8RUt-4rUj1TfR8qqMdYVbP3ZyFp9ZhtW-RES7fNCX-oEGtZkkOdAsLiwFGCpTmOwT2BI4t"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-3 py-2 rounded-lg text-[10px] font-bold text-primary">
+                            LOCALIZED: FLORENCE HUB
+                        </div>
+</div>
+<div class="p-6 bg-surface-container-lowest">
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-xs font-medium">Source: Verified Organic Tannery</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-xs font-medium">Current: Production Workshop 04</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Products List -->
+<section class="space-y-6">
+<h2 class="text-2xl font-headline font-bold">Active Catalog</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+<!-- Product 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-2xl bg-surface-container overflow-hidden mb-3 relative">
+<img alt="Watch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="luxury minimalist watch with dark face and silver metal band on charcoal background, dramatic professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLZttXLFvUyJ66qNQal2TTrWUJ_Rayw_NiwtYowGT7y2M5iH60sDC1Cb9pSisFNH06UDMQbbCKIPEhF1tBjGaAVjmVDRLqU1kuidRgi3Wf77fFZlzfJzufWcZdxSVtmxhFgnPAtkxz3jlWaXtMXnxCqNvLyBUHiNWkSxjJzIxc1KG6W25QNcs0KKjlY_esNRebWJUPtBRQg__Yv-8xEaRHIV4DliD1lSTEOhe2hX4bTKWj1vCRuyQ9rr98V1T0wdafIVGVreNLL2kx"/>
+<div class="absolute top-3 left-3 bg-white/90 text-primary text-[10px] font-black px-2 py-1 rounded">CHAIN-LOCKED</div>
+</div>
+<h4 class="font-headline font-bold text-on-surface group-hover:text-primary transition-colors">Obsidian Chrono V1</h4>
+<p class="text-xs text-on-surface-variant mb-2">4.9/5 Rating • 12 Orders Pending</p>
+<p class="text-sm font-bold text-on-surface">$1,250.00</p>
+</div>
+<!-- Product 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-2xl bg-surface-container overflow-hidden mb-3 relative">
+<img alt="Shoes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="close-up of artisan leather shoes, focus on hand-stitched detailing, rustic wooden surface background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAREFRtg-REpuQofc8mawhA32JEQtO_SMboYcBrOfBlg6FIVHPDgllWpTHSbs4reXA5hsTKxY3w-nlcDv5qyZOmaLJOgQZhIc1lpKtFu0-zO9M_VbYuI_fl0FRoOQ81B2E4_pSoWDX-I2yWv4sP9vkSjf5DLKKnkeBNN8fHwjX37YRt9_PadFH4oT5aVG-HNQM4OH41cUtCdPpVdM0jI8mDH7czHItK_jjyvRRTpx8JGTy-0XV3mqbZHuChtY05iDEbALaBIaQ0B5vX"/>
+</div>
+<h4 class="font-headline font-bold text-on-surface group-hover:text-primary transition-colors">Tuscan Derby Shoe</h4>
+<p class="text-xs text-on-surface-variant mb-2">5.0/5 Rating • 3 Orders Pending</p>
+<p class="text-sm font-bold text-on-surface">$340.00</p>
+</div>
+<!-- Product 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-2xl bg-surface-container overflow-hidden mb-3 relative">
+<img alt="Bag" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="luxury travel bag in emerald green leather, soft textures, golden hardware, boutique store shelf background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD87p8GQVaZK6GUTQB-0PSovTai3D8wCKs8CKakVvfuOWGtjfP6gTWC-4Rj34eW-hmQaGjwqNvjsnPB79_sDWkKcFqJQoM_Jy0XodDpiimrD6lFLP5z9v-FsJ5Gg9i61BwemDK6eCIbSlvWm91N-6JGgXXUWJ9IJbcNu7h1vVMTxR0RUB7S2PAGkiCF4CKKA9OIvLSS_JDQOwXsq-6xwNqe1DweoNgJV8DwjhzdWfIpT1_T-_q0mrZ_M63taXXGgoXrZLKslYD8vAY"/>
+</div>
+<h4 class="font-headline font-bold text-on-surface group-hover:text-primary transition-colors">Weekender Carry-all</h4>
+<p class="text-xs text-on-surface-variant mb-2">4.8/5 Rating • 8 Orders Pending</p>
+<p class="text-sm font-bold text-on-surface">$890.00</p>
+</div>
+<!-- Product 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-2xl bg-surface-container overflow-hidden mb-3 relative">
+<img alt="Watch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="modern minimalist white watch on plain background, soft high-key lighting, professional product photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfVkrl6LJX6Z9-CmSerKmGR2NG8o0MGGUBlYB7FjPNR_EM-6yxbxbSVEHOMdCNlrX6atmCU4uGsy_Muefuk0P2Id_-dxYnOZeORsr4C6sEyCS-NmAVZLtCfDNjOs0rQaurWAWRKPm2wn73NOUpFwAvNMiki7INQQqhRzjtY0LCChfJCQUuIA_mvQZjp5vV5cnWZo53tUxiNijFNTymZovM562hzoVAita6Z4tEMT3fDnHcFBTavbwg-OlwgDiDy-5z_5OHdyks28DO"/>
+</div>
+<h4 class="font-headline font-bold text-on-surface group-hover:text-primary transition-colors">Arctic Minimalist II</h4>
+<p class="text-xs text-on-surface-variant mb-2">4.7/5 Rating • 15 Orders Pending</p>
+<p class="text-sm font-bold text-on-surface">$210.00</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-6 md:bottom-8 md:right-8 bg-primary text-on-primary px-6 py-4 rounded-full shadow-2xl flex items-center gap-3 active:scale-95 transition-transform z-50">
+<span class="material-symbols-outlined">add</span>
+<span class="font-headline font-bold text-sm">List New Product</span>
+</button>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white dark:bg-[#191c1e] flex justify-around items-center px-4 pb-4 pt-2 border-t border-[#c3c6d6]/10 shadow-[0_-4px_40px_rgba(0,62,151,0.04)] z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-secondary-container/20 text-on-secondary-container rounded-2xl px-5 py-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-[11px] font-semibold uppercase tracking-wider">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label text-[11px] font-semibold uppercase tracking-wider">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label text-[11px] font-semibold uppercase tracking-wider">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label text-[11px] font-semibold uppercase tracking-wider">History</span>
+</a>
+</nav>
+</body></html>
+
+<!-- Marketplace -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FairChain B2B Marketplace</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#1f56b9",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#111d23",
+                    "on-tertiary-container": "#c8d5dd",
+                    "inverse-primary": "#b1c5ff",
+                    "tertiary": "#39454c",
+                    "surface-dim": "#d9dadc",
+                    "surface-bright": "#f8f9fb",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c3c6d6",
+                    "on-primary-fixed-variant": "#00419e",
+                    "on-primary-container": "#c3d2ff",
+                    "surface-container-highest": "#e1e2e4",
+                    "surface-container": "#edeef0",
+                    "secondary-fixed": "#8df7c1",
+                    "on-tertiary-fixed-variant": "#3c494f",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#71dba6",
+                    "surface": "#f8f9fb",
+                    "surface-tint": "#2559bd",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#006c47",
+                    "on-surface": "#191c1e",
+                    "on-error-container": "#93000a",
+                    "background": "#f8f9fb",
+                    "on-primary-fixed": "#001946",
+                    "on-secondary-container": "#00714b",
+                    "surface-container-high": "#e7e8ea",
+                    "on-surface-variant": "#434654",
+                    "on-secondary-fixed-variant": "#005235",
+                    "tertiary-fixed": "#d7e4ec",
+                    "surface-container-low": "#f3f4f6",
+                    "on-secondary-fixed": "#002113",
+                    "outline": "#737685",
+                    "tertiary-container": "#505d63",
+                    "inverse-on-surface": "#f0f1f3",
+                    "inverse-surface": "#2e3132",
+                    "primary": "#003e97",
+                    "surface-variant": "#e1e2e4",
+                    "secondary-container": "#8af5be",
+                    "primary-fixed": "#dae2ff",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#bbc8d0",
+                    "primary-fixed-dim": "#b1c5ff",
+                    "on-primary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-[#f8f9fb] dark:bg-[#191c1e] flex justify-between items-center px-6 py-4 w-full sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-[#f3f4f6] p-2 rounded-full transition-colors">menu</button>
+<span class="font-headline font-extrabold text-xl tracking-tight text-[#003e97] dark:text-[#1f56b9]">FairChain</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body text-sm font-bold text-[#003e97] dark:text-[#8af5be]" href="#">Market</a>
+<a class="font-body text-sm text-[#434654] dark:text-[#c3c6d6] hover:text-[#003e97] transition-colors" href="#">Overview</a>
+<a class="font-body text-sm text-[#434654] dark:text-[#c3c6d6] hover:text-[#003e97] transition-colors" href="#">Payments</a>
+<a class="font-body text-sm text-[#434654] dark:text-[#c3c6d6] hover:text-[#003e97] transition-colors" href="#">Transparency</a>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/10">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="professional headshot of a supply chain manager in a minimalist office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPs5YRHn5Gwk8UkEho1XG-eOMxf01_8wERbuqKKofVAhH6b8_V8toxYcj8DSDnRInnPD_LNsoN79-GjpfHQ5gNlo-2ybTrwowgMsTYkTw6GbCPs8g_hdZyRDsJu6HudvOYaXmshs4xOAlzAj9YtW3gw0qbv4T74yL25LizX8sPcJ9w8r0XnHeIdiybOQWB8Z8OYQomBhq7byQDlVAnefbf2_T7aSERuI1MdX9dy3gek5k2k-7YtCaDthEiAC3Y4ZEGcmWMSKZvSd-e"/>
+</div>
+</div>
+</header>
+<main class="flex min-h-screen">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="hidden lg:flex flex-col gap-2 py-8 pr-4 w-80 bg-[#f3f4f6] dark:bg-[#191c1e] shrink-0">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-1">
+<span class="font-headline font-black text-[#003e97] text-lg">Artisan Portal</span>
+</div>
+<p class="text-xs text-on-surface-variant font-medium">Verified Manufacturer</p>
+<div class="mt-4 inline-block bg-secondary-container/30 px-3 py-1 rounded-full">
+<p class="text-[10px] font-bold text-secondary uppercase tracking-widest">Trust Score: 99.8%</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-4 px-6 py-3 text-[#434654] dark:text-[#c3c6d6] hover:bg-[#f8f9fb] transition-transform translate-x-1" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label font-medium text-sm">Overview</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 bg-white dark:bg-[#2e3133] text-[#003e97] dark:text-[#1f56b9] rounded-r-full font-bold shadow-sm" href="#">
+<span class="material-symbols-outlined">local_mall</span>
+<span class="font-label font-medium text-sm">Marketplace</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#434654] dark:text-[#c3c6d6] hover:bg-[#f8f9fb]" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label font-medium text-sm">Payments</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#434654] dark:text-[#c3c6d6] hover:bg-[#f8f9fb]" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label font-medium text-sm">Transparency</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#434654] dark:text-[#c3c6d6] hover:bg-[#f8f9fb]" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label font-medium text-sm">Disputes</span>
+</a>
+</nav>
+</aside>
+<!-- Content Canvas -->
+<section class="flex-1 bg-surface p-6 md:p-10">
+<!-- Header Section with Search -->
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div class="space-y-2">
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface">B2B Marketplace</h1>
+<p class="text-on-surface-variant font-body">Source directly from verified artisans and ethical manufacturers worldwide.</p>
+</div>
+<div class="relative w-full md:w-96 group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-full py-4 pl-12 pr-6 text-sm font-body shadow-[0_4px_20px_rgba(0,62,151,0.03)] focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search fibers, dyes, or artisans..." type="text"/>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex flex-wrap gap-3 mb-10">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary text-xs font-bold uppercase tracking-wider">All Products</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-bold uppercase tracking-wider hover:bg-surface-container-highest transition-colors">Raw Materials</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-bold uppercase tracking-wider hover:bg-surface-container-highest transition-colors">Finished Goods</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-bold uppercase tracking-wider hover:bg-surface-container-highest transition-colors">Sustainable Fibers</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-bold uppercase tracking-wider hover:bg-surface-container-highest transition-colors">Natural Dyes</button>
+</div>
+<!-- Product Grid (Asymmetric Bento-ish Style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Card 1: Large Featured -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,62,151,0.08)] transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="stacks of raw unbleached organic cotton bolls and textured woven fabric in a bright sunlit studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7rjtXy7zTCoWM4qc-hshfIhsKJSjzWP1mYqikO_XlNVKkc0x5_1LFUGE62M5t8CUZf9A8HtWwUxokUzHsgoLJz6uS8rfhZoc7BkfrPRmU76BJNaNxrqRIqAJgxmGUr0dmvtBqY-qycLBOtnEvDeUM6oRnFAEJUxv2F19TygW7605aVLtvzSks80T5rY8qZJ3WO9doPr7uyscM6S_QuRkhnI8rxQbTCxt9t_J_ZkZOJW_RZsjRT8kj4H5mnhaoTqRUWRJDfIUBAMUr"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span> Verified
+                                </span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-headline font-bold text-on-surface mb-1">Raw Organic Cotton</h3>
+<p class="text-sm text-on-surface-variant font-medium">By Amara Weavers Collective</p>
+</div>
+<div class="text-right">
+<p class="text-2xl font-headline font-extrabold text-primary">$4.20</p>
+<p class="text-[10px] text-outline font-bold uppercase tracking-tighter">Per Kg</p>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="text-xs text-on-surface-variant flex items-center gap-1 italic"><span class="material-symbols-outlined text-sm">local_shipping</span> 2,000kg Available</span>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-full font-bold text-sm transition-all active:scale-95">Start Trade</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,62,151,0.08)] transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="deep blue vats of natural indigo dye with stained wooden paddles in a traditional open-air workshop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDFMoGriRJeAvU-C5fZ3haQdoUigwIHV37at7p_P9yEJ7vei4iJISqD8PZ_X0q_cLelxFQGI-lbMJKlAeNXfS4Wy15RJ4igjywBKqcTosVf8ARo83wqKT_E-1KaEs0cW4ppuCmv42U_kpBl_nQL2pkzqDq2Q3PW9kAfNRZdsKs5jcORsMnYLIX2-CUiqF9Y8OFGGkbAEKoAsl3zvKVC8Qu7QDuloVjs45Okg759AoplNnEED5NcygyFkmt8KHSNo6PPd2oP2NMGg9T"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span> Verified
+                                </span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-headline font-bold text-on-surface mb-1">Natural Indigo Dye</h3>
+<p class="text-sm text-on-surface-variant font-medium">By Indigo Artisans Group</p>
+</div>
+<div class="text-right">
+<p class="text-2xl font-headline font-extrabold text-primary">$18.50</p>
+<p class="text-[10px] text-outline font-bold uppercase tracking-tighter">Per Liter</p>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="text-xs text-on-surface-variant flex items-center gap-1 italic"><span class="material-symbols-outlined text-sm">hourglass_empty</span> Lead Time: 14 Days</span>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-full font-bold text-sm transition-all active:scale-95">Start Trade</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,62,151,0.08)] transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="skeins of raw hand-spun Mulberry silk in shimmering cream tones hanging from a bamboo pole" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQZC-Fqnh0_1DeFECZpWfu-RCaLid9gUffXahAbCIRnxeuAaMGOcfxYR9jncBW6_57qGMMufu6bTIFkvymIiEgwJdvNcKMJy_6fYYwdfaPChhJOkfvXTR1OSaKpxOD7dqUyZOVpsA0hP8RVgB3pU9GH9_fYTxLmjxX-ekLCLtM_GyAI3_0v0lcN2sSkkD27_IIRoIynXbeupN0BNLIJohfGBbDY_ZilwG_3orwE6ClrNWx0Q5uLTejW-qyNyBA4SQNmPR1LHpGEMrr"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span> Verified
+                                </span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-headline font-bold text-on-surface mb-1">Raw Mulberry Silk</h3>
+<p class="text-sm text-on-surface-variant font-medium">By Sericulture Heritage</p>
+</div>
+<div class="text-right">
+<p class="text-2xl font-headline font-extrabold text-primary">$45.00</p>
+<p class="text-[10px] text-outline font-bold uppercase tracking-tighter">Per Kg</p>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="text-xs text-on-surface-variant flex items-center gap-1 italic"><span class="material-symbols-outlined text-sm">verified</span> Eco-Certified</span>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-full font-bold text-sm transition-all active:scale-95">Start Trade</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,62,151,0.08)] transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="recycled handmade paper sheets with embedded flower petals in a minimalist stacked arrangement" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB83vXwrDgH-Ut0BFowL8MifczRn9HO5awAyrJnltY5qXFc-zN6Q-nIlV0-ImFgDoD4f0DYs_DQTqNNBZ4ft6GV6guoOgjSpeFJnjifGh4wXOCyeMouWXu0EsvGZ4P-fGPaocKTijDtz4aXIgMm7iEEwpgSyZAsa6eMZYU3-jroxeKFDZvWLDbWv4oGfDBfBqrGhAZiH3bVP6A3r1HILevPaysmlGwLwwtpBkdBYOrkOQ3to_RKgowjNGjqzCqxWuqvBkIRpJkcZtYr"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span> Verified
+                                </span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-headline font-bold text-on-surface mb-1">Recycled Pulp Paper</h3>
+<p class="text-sm text-on-surface-variant font-medium">By Sustainable Press Co.</p>
+</div>
+<div class="text-right">
+<p class="text-2xl font-headline font-extrabold text-primary">$0.85</p>
+<p class="text-[10px] text-outline font-bold uppercase tracking-tighter">Per Sheet</p>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="text-xs text-on-surface-variant flex items-center gap-1 italic"><span class="material-symbols-outlined text-sm">inventory_2</span> 50k Sheets In Stock</span>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-full font-bold text-sm transition-all active:scale-95">Start Trade</button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,62,151,0.08)] transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="artisan hand-tanned leather hides in various shades of brown and tan draped over a workbench" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPkMGFhPM6jNtPzhhZ3JGi3motsos8LVYcoytBR84UPITWQMydAsxwzZhko18G33s2n8jivG4awiCTyhF22vu5kcbvMy7c59_lf-7m1ScZ1pNZtArrfa5MJaBvCrw-Fd-EXfWYgQZe3pzTwMMRpMHIDjD0NClDv8a4bRsKVUJ7Rg9_RBmVpmweOJqiwwhsa9SKmyx8f2HjchqxWGIb5lSSxv0QM1lPr9OH-9w3x2d81tR-ffrpapTKYnQNvZhAQCRVtXncEOMFBWZP"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span> Verified
+                                </span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-headline font-bold text-on-surface mb-1">Veg-Tanned Leather</h3>
+<p class="text-sm text-on-surface-variant font-medium">By Tuscan Leather Works</p>
+</div>
+<div class="text-right">
+<p class="text-2xl font-headline font-extrabold text-primary">$12.00</p>
+<p class="text-[10px] text-outline font-bold uppercase tracking-tighter">Per Sq Ft</p>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="text-xs text-on-surface-variant flex items-center gap-1 italic"><span class="material-symbols-outlined text-sm">history</span> Grade A Quality</span>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-full font-bold text-sm transition-all active:scale-95">Start Trade</button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,62,151,0.08)] transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="fine white ceramic powder being poured into a marble bowl in a high-tech clean lab environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtBtDtkhgve16SJwDLKfGhtnkG8KqsMJg9sDvuFfUKHhRvFZKPaRnK6emgFwqmCqts0JaLg1B0M0UG2J0E4oOLDp_S6TcVQ6DxvGnLQ8XtuLUwzOQVL29WjgyIcZnq7abtBE9eBQxoqiF_1OAiP5hp-ILnX7zxeX_MSS1zPPMoq1mBTom6aULQXR0SBeshQWfJ_uJdFBMHz_VAGA4CuymwT_ZI0fuD4pm011wdN6ViUQseCAT4rUJ3HpPAAtuY8HyERwcGvxJrqGUn"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span> Verified
+                                </span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-headline font-bold text-on-surface mb-1">Fine Kaolin Clay</h3>
+<p class="text-sm text-on-surface-variant font-medium">By Terra Minerale Corp</p>
+</div>
+<div class="text-right">
+<p class="text-2xl font-headline font-extrabold text-primary">$2.45</p>
+<p class="text-[10px] text-outline font-bold uppercase tracking-tighter">Per Kg</p>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="text-xs text-on-surface-variant flex items-center gap-1 italic"><span class="material-symbols-outlined text-sm">shield_with_heart</span> Pure Mineral</span>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-3 rounded-full font-bold text-sm transition-all active:scale-95">Start Trade</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-[#ffffff] dark:bg-[#191c1e] z-50 rounded-t-xl border-t border-[#c3c6d6]/10 shadow-[0_-4px_40px_rgba(0,62,151,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#434654] dark:text-[#c3c6d6]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-[11px] font-semibold uppercase tracking-wider">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#8af5be]/20 text-[#006c47] dark:text-[#8af5be] rounded-2xl px-5 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label text-[11px] font-semibold uppercase tracking-wider">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#434654] dark:text-[#c3c6d6]" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label text-[11px] font-semibold uppercase tracking-wider">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#434654] dark:text-[#c3c6d6]" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label text-[11px] font-semibold uppercase tracking-wider">History</span>
+</a>
+</nav>
+<!-- FAB for Main Screen -->
+<button class="fixed bottom-24 right-8 md:bottom-12 md:right-12 w-16 h-16 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform z-40">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>
+
+<!-- Trade & Escrow Detail -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#1f56b9",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#111d23",
+                        "on-tertiary-container": "#c8d5dd",
+                        "inverse-primary": "#b1c5ff",
+                        "tertiary": "#39454c",
+                        "surface-dim": "#d9dadc",
+                        "surface-bright": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "on-primary-fixed-variant": "#00419e",
+                        "on-primary-container": "#c3d2ff",
+                        "surface-container-highest": "#e1e2e4",
+                        "surface-container": "#edeef0",
+                        "secondary-fixed": "#8df7c1",
+                        "on-tertiary-fixed-variant": "#3c494f",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#71dba6",
+                        "surface": "#f8f9fb",
+                        "surface-tint": "#2559bd",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#006c47",
+                        "on-surface": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "on-primary-fixed": "#001946",
+                        "on-secondary-container": "#00714b",
+                        "surface-container-high": "#e7e8ea",
+                        "on-surface-variant": "#434654",
+                        "on-secondary-fixed-variant": "#005235",
+                        "tertiary-fixed": "#d7e4ec",
+                        "surface-container-low": "#f3f4f6",
+                        "on-secondary-fixed": "#002113",
+                        "outline": "#737685",
+                        "tertiary-container": "#505d63",
+                        "inverse-on-surface": "#f0f1f3",
+                        "inverse-surface": "#2e3132",
+                        "primary": "#003e97",
+                        "surface-variant": "#e1e2e4",
+                        "secondary-container": "#8af5be",
+                        "primary-fixed": "#dae2ff",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#bbc8d0",
+                        "primary-fixed-dim": "#b1c5ff",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .timeline-dot-connector {
+            background-image: radial-gradient(circle, #c3c6d6 1.5px, transparent 1.5px);
+            background-size: 1px 8px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="bg-[#f8f9fb] dark:bg-[#191c1e] docked full-width top-0 z-40">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="text-[#003e97] dark:text-[#1f56b9] transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-['Manrope'] font-bold tracking-tight text-[#191c1e] dark:text-[#f8f9fb] text-xl font-extrabold text-[#003e97] dark:text-[#1f56b9]">FairChain</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-['Manrope'] font-bold tracking-tight text-[#434654] dark:text-[#c3c6d6] hover:bg-[#f3f4f6] dark:hover:bg-[#2e3133] px-3 py-1 rounded transition-colors" href="#">Market</a>
+<a class="font-['Manrope'] font-bold tracking-tight text-[#003e97] dark:text-[#8af5be] font-bold" href="#">History</a>
+<a class="font-['Manrope'] font-bold tracking-tight text-[#434654] dark:text-[#c3c6d6] hover:bg-[#f3f4f6] dark:hover:bg-[#2e3133] px-3 py-1 rounded transition-colors" href="#">Transparancy</a>
+</nav>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close-up professional headshot of a business executive against a minimalist soft gray architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO-xnkxxVYnyM1ZkCa2HelIIa1WSQiZxAEzmlt9I50_Fyx4qujuz0zsj33HWaqsZWZqIUgsWYqJL5NIIEJgLKbgm-n19vMcNNzOOYyD-9ge6UFG1uF-lV_fLH3Pgu5x8gVIee0dKEc1hfSYUC93wLBRZVWtj38had91Q1zVQROuAqirEt6AvhbmcDUZC9QhwqZY4I-JVeVAeewPCxrtBQF0SGdZ_LJZ_OJc9kHQvTlwTct2V_1l1E-gMqE_RkA1H4KUrPuvLEMs1a8"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-12 md:py-16">
+<!-- Header Status Section -->
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<nav class="flex items-center gap-2 text-sm text-on-surface-variant mb-4">
+<span>Trade Ledger</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary font-semibold">TRD-882910-XC</span>
+</nav>
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tight text-on-surface mb-2">Artisan Silk Shipment</h2>
+<p class="text-on-surface-variant max-w-xl">Comprehensive audit trail of the luxury textile exchange between Lyon Silk Mills and Kyoto Distributing Co.</p>
+</div>
+<div class="flex flex-col items-end gap-3">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full font-bold text-sm tracking-wide">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">lock</span>
+                    Status: Escrow Held
+                </div>
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Last activity: 14 mins ago</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left: Timeline Content -->
+<div class="lg:col-span-7 xl:col-span-8">
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_40px_rgba(0,62,151,0.02)]">
+<h3 class="text-lg font-headline font-bold mb-10 text-on-surface border-b border-outline-variant/10 pb-4 uppercase tracking-tighter">Chain of Custody</h3>
+<div class="space-y-0 relative">
+<!-- Step 1: Completed -->
+<div class="relative pl-12 pb-12 group">
+<div class="absolute left-0 top-0 h-full w-px timeline-dot-connector"></div>
+<div class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-on-secondary shadow-sm">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-start gap-4">
+<div class="flex-1">
+<h4 class="font-headline font-bold text-on-surface text-lg">Order Created</h4>
+<p class="text-on-surface-variant text-sm mt-1">Smart contract initialized and terms accepted by both parties.</p>
+<div class="mt-4 inline-flex items-center gap-3 bg-surface-container-low px-4 py-2 rounded-lg">
+<div class="w-6 h-6 rounded-full bg-outline-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">person</span>
+</div>
+<span class="text-xs font-medium text-on-surface">Initiated by: Lyon Silk Mills</span>
+</div>
+</div>
+<div class="md:text-right min-w-[140px]">
+<time class="text-sm font-label font-semibold text-primary">Oct 12, 2023</time>
+<div class="text-[11px] text-on-surface-variant uppercase tracking-tighter">09:14 AM GMT</div>
+</div>
+</div>
+</div>
+<!-- Step 2: Active/Current -->
+<div class="relative pl-12 pb-12 group">
+<div class="absolute left-0 top-0 h-full w-px timeline-dot-connector"></div>
+<div class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-primary ring-4 ring-primary-fixed flex items-center justify-center text-on-primary shadow-lg animate-pulse">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-start gap-4">
+<div class="flex-1 bg-surface-container-low p-6 rounded-xl border-l-4 border-primary">
+<h4 class="font-headline font-bold text-on-surface text-lg">Escrow Funded</h4>
+<p class="text-on-surface-variant text-sm mt-1">Kyoto Distributing Co. has deposited 45,000 USDC into the secure vault. Verification successful.</p>
+<div class="mt-6 p-4 bg-white rounded-lg flex items-center justify-between">
+<div>
+<span class="block text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Secured Amount</span>
+<span class="text-xl font-bold font-headline text-on-surface">45,000.00 <span class="text-primary">USDC</span></span>
+</div>
+<div class="bg-secondary-container px-3 py-1 rounded text-[10px] font-bold text-secondary uppercase tracking-tight">Verified</div>
+</div>
+</div>
+<div class="md:text-right min-w-[140px] pt-2">
+<time class="text-sm font-label font-semibold text-primary">Oct 14, 2023</time>
+<div class="text-[11px] text-on-surface-variant uppercase tracking-tighter">02:33 PM GMT</div>
+</div>
+</div>
+</div>
+<!-- Step 3: Pending -->
+<div class="relative pl-12 pb-12 group">
+<div class="absolute left-0 top-0 h-full w-px timeline-dot-connector"></div>
+<div class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant border border-outline-variant/30">
+<span class="material-symbols-outlined text-sm">factory</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-start gap-4 opacity-50">
+<div class="flex-1">
+<h4 class="font-headline font-bold text-on-surface text-lg">Production Started</h4>
+<p class="text-on-surface-variant text-sm mt-1">Awaiting manufacturer to signal the start of fabrication.</p>
+</div>
+<div class="md:text-right min-w-[140px]">
+<span class="text-xs font-label font-bold text-on-surface-variant italic">Scheduled</span>
+</div>
+</div>
+</div>
+<!-- Step 4: Pending -->
+<div class="relative pl-12 group">
+<div class="absolute left-[-12px] top-0 w-6 h-6 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant border border-outline-variant/30">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-start gap-4 opacity-50">
+<div class="flex-1">
+<h4 class="font-headline font-bold text-on-surface text-lg">In Transit</h4>
+<p class="text-on-surface-variant text-sm mt-1">Global logistics tracking will be enabled upon dispatch.</p>
+</div>
+<div class="md:text-right min-w-[140px]">
+<span class="text-xs font-label font-bold text-on-surface-variant italic">Next Step</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right: Details Sidebar -->
+<div class="lg:col-span-5 xl:col-span-4 space-y-6">
+<!-- Transaction Card -->
+<div class="bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.03)] overflow-hidden">
+<div class="p-6">
+<h4 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-6 flex items-center justify-between">
+                            Asset Details
+                            <span class="material-symbols-outlined text-lg">info</span>
+</h4>
+<div class="aspect-video w-full rounded-lg overflow-hidden mb-6">
+<img alt="Luxury Textile Product" class="w-full h-full object-cover" data-alt="macro close-up of premium raw silk fabric with rich texture and subtle sheen in a soft ivory palette with elegant folds" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_7wrbujlQUKRvoXa-RHFgJaUmzpO4h3LrlU6_bY3ccWEjRF-XvPSJLu07DjiuxeEoytwuh029uxqyW68JZPJjVrTl0JoXu6mkP6NgSi3O35RGgAhpafNfRhQtvifYlki6AUcSszGxkefWHgOW4EF_M3kMG4Ca6BlKKNpcPpM0l2upPrMTjDbroHehUaq_8SRKSu2FXzBd4rs5451dd_mpBHH2KOClXOuKhzaPCjihmqYT5pq2p0lnOXJxO9AvoLNq5ko9BpVITYm7"/>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-sm text-on-surface-variant">Item</span>
+<span class="text-sm font-bold text-on-surface">Premium Mulberry Silk (Grade 6A)</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-sm text-on-surface-variant">Quantity</span>
+<span class="text-sm font-bold text-on-surface">1,200 Meters</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-sm text-on-surface-variant">Escrow ID</span>
+<code class="text-xs bg-surface-container px-2 py-1 rounded text-primary">0x4a2e...91b8</code>
+</div>
+</div>
+</div>
+<div class="bg-secondary-container p-6">
+<div class="flex justify-between items-center">
+<span class="font-headline font-bold text-on-secondary-container">Total Escrow Value</span>
+<span class="text-2xl font-black font-headline text-on-secondary-container">$45,000.00</span>
+</div>
+</div>
+</div>
+<!-- Verified Participants -->
+<div class="bg-surface-container-high rounded-xl p-6">
+<h4 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-6">Verified Stakeholders</h4>
+<div class="space-y-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined">store</span>
+</div>
+<div>
+<div class="text-sm font-bold text-on-surface">Lyon Silk Mills</div>
+<div class="text-[10px] text-secondary font-bold flex items-center gap-1 uppercase">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                    Verified Manufacturer
+                                </div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<div>
+<div class="text-sm font-bold text-on-surface">Kyoto Distributing Co.</div>
+<div class="text-[10px] text-secondary font-bold flex items-center gap-1 uppercase">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                    Certified Buyer
+                                </div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/20">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+<span class="text-xs font-medium">Smart Contract Audited by ChainSafe</span>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-headline font-bold tracking-tight hover:bg-primary-container transition-colors shadow-lg shadow-primary/10 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">description</span>
+                    View Full Legal Contract
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-[#ffffff] dark:bg-[#191c1e] z-50 rounded-t-xl border-t border-[#c3c6d6]/10 shadow-[0_-4px_40px_rgba(0,62,151,0.04)] md:hidden">
+<div class="flex flex-col items-center justify-center text-[#434654] dark:text-[#c3c6d6] transition-all duration-300 ease-in-out hover:bg-[#f3f4f6] dark:hover:bg-[#2e3133] px-4 py-2 rounded-lg">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#434654] dark:text-[#c3c6d6] transition-all duration-300 ease-in-out hover:bg-[#f3f4f6] dark:hover:bg-[#2e3133] px-4 py-2 rounded-lg">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Market</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#8af5be]/20 text-[#006c47] dark:text-[#8af5be] rounded-2xl px-5 py-2 transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">History</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#434654] dark:text-[#c3c6d6] transition-all duration-300 ease-in-out hover:bg-[#f3f4f6] dark:hover:bg-[#2e3133] px-4 py-2 rounded-lg">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Chat</span>
+</div>
+</nav>
+</body></html>
